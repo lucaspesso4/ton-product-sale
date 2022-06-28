@@ -1,15 +1,14 @@
 import React from 'react';
 import {NativeBaseProvider} from 'native-base';
-import {StatusBar, useColorScheme} from 'react-native';
 import {QueryClientProvider} from 'react-query';
 import {queryClient} from 'services/queryClient';
+import {ProductsPage} from '@pages/Products';
 
 export function App() {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
     <QueryClientProvider client={queryClient}>
       <NativeBaseProvider>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <ProductsPage />
       </NativeBaseProvider>
     </QueryClientProvider>
   );
