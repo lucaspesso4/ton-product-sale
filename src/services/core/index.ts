@@ -20,7 +20,6 @@ function getAuthorizationHeader() {
 function customAxiosGet(url: string) {
   // Caso mude a API e precise de algum token de autorização, está centralizado
   const config = {headers: getAuthorizationHeader()};
-  console.log('`${PRODUCTS_BASE_URL}${url}`', `${PRODUCTS_BASE_URL}${url}`);
 
   return axios.get(`${PRODUCTS_BASE_URL}${url}`);
 }
