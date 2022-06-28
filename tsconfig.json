@@ -32,6 +32,7 @@
     "paths": {
       "*": ["src/*"],
       "@pages/*": ["src/pages/*"],
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
