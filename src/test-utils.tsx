@@ -1,6 +1,15 @@
 import React, {ReactNode} from 'react';
 import {NativeBaseProvider} from 'native-base';
 import {render} from '@testing-library/react-native';
+import {QueryClient, QueryClientProvider} from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 export function renderWrapper(children: ReactNode) {
   const inset = {
@@ -9,9 +18,11 @@ export function renderWrapper(children: ReactNode) {
   };
 
   return render(
-    <NativeBaseProvider initialWindowMetrics={inset}>
-      {children}
-    </NativeBaseProvider>,
+    <QueryClientProvider client={queryClient}>
+      <NativeBaseProvider initialWindowMetrics={inset}>
+        {children}
+      </NativeBaseProvider>
+    </QueryClientProvider>,
   );
 }
 
