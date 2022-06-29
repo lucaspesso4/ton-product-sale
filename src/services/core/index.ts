@@ -5,7 +5,7 @@ const PRODUCTS_BASE_URL = 'https://gist.githubusercontent.com/lucaspesso4/';
 const SERVICES = {
   get: {
     products:
-      '1dc517ad02c5dbcc05ab27b0fdb4c662/raw/c40e4b4d1886c3237aff8a119ed21bca755df342/products.json',
+      '1dc517ad02c5dbcc05ab27b0fdb4c662/raw/bac548b318a2c5c49b45c0b6148c15260b7ceb8c/products.json',
   },
 };
 

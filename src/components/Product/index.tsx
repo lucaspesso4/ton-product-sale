@@ -14,13 +14,13 @@ interface ProductProps {
 
 export function Product({product}: ProductProps) {
   return (
-    <Box>
+    <Box maxWidth="40%" m="4">
       <Image
         source={{uri: product.uriImage}}
         alt={`${product.name} image`}
         size="xl"
       />
-      <Text>{product.name}</Text>
+      <Text isTruncated>{product.name}</Text>
       <Button mt="2" size="sm" colorScheme="success">
         Add
       </Button>

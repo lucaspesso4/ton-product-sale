@@ -1,7 +1,7 @@
 import {InterfaceScrollViewProps} from 'native-base/lib/typescript/components/basic/ScrollView/types';
 
 export const containerStyle: Partial<InterfaceScrollViewProps> = {
-  p: 6,
+  p: 4,
   paddingBottom: 20,
   flexDirection: 'row',
   alignItems: 'center',
