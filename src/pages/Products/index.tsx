@@ -1,7 +1,6 @@
 import React, {useMemo} from 'react';
 import {SafeAreaView} from 'react-native';
 import {Spinner, ScrollView, Center, Text} from 'native-base';
-import {Appbar} from '@components/Appbar';
 import {Product, IProduct} from '@components/Product';
 import {useQuery} from 'react-query';
 import {ProductsService} from 'services/core';
@@ -26,7 +25,6 @@ export function ProductsPage() {
 
   return (
     <SafeAreaView>
-      <Appbar />
       {isLoading && (
         <Center mt={100}>
           <Spinner size={80} color="green.500" />
