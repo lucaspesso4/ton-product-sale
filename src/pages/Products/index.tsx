@@ -2,16 +2,12 @@ import React, {useMemo} from 'react';
 import {SafeAreaView} from 'react-native';
 import {Spinner, ScrollView, Center, Text} from 'native-base';
 import {Product} from '@components/Product';
-import {useQuery} from 'react-query';
-import {ProductsService} from 'services/core';
 import {containerStyle} from './style';
 import {IProduct} from 'types/Product';
+import useFetchProducts from 'services/hooks';
 
 export function ProductsPage() {
-  const {isLoading, isError, data} = useQuery(
-    'products',
-    ProductsService.getProducts,
-  );
+  const {isLoading, isError, data} = useFetchProducts();
 
   const products = useMemo(() => data?.data?.products, [data]);
   const hasProducts = products?.length > 0;

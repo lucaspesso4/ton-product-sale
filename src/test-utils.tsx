@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import {NativeBaseProvider} from 'native-base';
 import {render} from '@testing-library/react-native';
 import {QueryClient, QueryClientProvider} from 'react-query';
+import {NavigationContainer} from '@react-navigation/native';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,7 @@ export function renderWrapper(children: ReactNode) {
   return render(
     <QueryClientProvider client={queryClient}>
       <NativeBaseProvider initialWindowMetrics={inset}>
-        {children}
+        <NavigationContainer>{children}</NavigationContainer>
       </NativeBaseProvider>
     </QueryClientProvider>,
   );

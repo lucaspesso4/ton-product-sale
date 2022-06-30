@@ -1,8 +1,15 @@
 import React from 'react';
-import {Badge, Box, Button, VStack, Row} from 'native-base';
+import {
+  Badge,
+  Box,
+  Button,
+  VStack,
+  Row,
+  ArrowBackIcon,
+  SmallCloseIcon,
+} from 'native-base';
 
 import CartIcon from '@assets/icons/shopping-cart.svg';
-import BackIcon from '@assets/icons/back-arrow.svg';
 import {useCartContext} from 'contexts/cart/hooks';
 import {useNavigation} from '@react-navigation/native';
 
@@ -31,9 +38,7 @@ export function Appbar() {
         alignItems="center"
         flex="1"
         justifyContent={canGoBack ? 'space-between' : 'flex-end'}>
-        {canGoBack && (
-          <BackIcon onPress={goBack} width={20} height={20} fill="#fff" />
-        )}
+        {canGoBack && <ArrowBackIcon onPress={goBack} size="5" color="white" />}
         <VStack alignSelf="flex-end">
           <Badge
             testID="appbar-badge"

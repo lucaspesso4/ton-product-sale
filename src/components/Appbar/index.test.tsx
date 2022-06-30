@@ -15,9 +15,7 @@ describe('<Appbar />', () => {
     expect(appbarBadge).not.toBe(null);
 
     expect(appbarContainer.props.style).toMatchObject({
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-end',
+      flexDirection: 'row',
       backgroundColor: '#22c55e',
       paddingRight: 24,
       paddingLeft: 8,

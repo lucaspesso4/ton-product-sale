@@ -4,7 +4,7 @@ import {CartContext} from './CartContext';
 
 export function useCartContext() {
   const {cartState, dispatchCartState} = useContext(CartContext);
-  const {products, productsCount} = cartState;
+  const {products, productsCount} = cartState || {};
 
   function addToCart(product: IProduct) {
     dispatchCartState({type: 'addProduct', payload: product});

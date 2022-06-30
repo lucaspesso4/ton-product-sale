@@ -18,11 +18,11 @@ describe('<Product />', () => {
     const {getByRole, getByText} = screen;
 
     const name = getByText(/logitech/i);
-    const buttonTitle = getByText('Add');
+    const buttonTitle = getByText('Adicionar');
     const addButton = getByRole('button');
 
     expect(name).toBeTruthy();
     expect(addButton).toBeTruthy();
-    expect(buttonTitle.props.children).toEqual('Add');
+    expect(buttonTitle.props.children).toEqual('Adicionar');
   });
 });

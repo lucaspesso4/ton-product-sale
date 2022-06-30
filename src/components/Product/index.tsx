@@ -13,7 +13,7 @@ export function Product({product}: ProductProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const {cartProducts, addToCart, removeFromCart} = useCartContext();
 
-  const isAnAddedProduct = cartProducts.find(p => p.id === product.id);
+  const isAnAddedProduct = cartProducts?.find(p => p.id === product.id);
 
   const componentHelper = useMemo(() => {
     if (!isAnAddedProduct)
