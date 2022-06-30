@@ -19,6 +19,12 @@ export function cartReducer(
           product => product.id !== action.payload.id,
         ),
       };
+    case 'clearCart':
+      return {
+        ...state,
+        productsCount: 0,
+        products: [],
+      };
     default:
       return state;
   }

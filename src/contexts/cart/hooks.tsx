@@ -14,10 +14,15 @@ export function useCartContext() {
     dispatchCartState({type: 'removeProduct', payload: {id: product.id}});
   }
 
+  function clearCart() {
+    dispatchCartState({type: 'clearCart'});
+  }
+
   return {
     cartProducts: products,
     cartProductsCount: productsCount,
     addToCart,
     removeFromCart,
+    clearCart,
   };
 }

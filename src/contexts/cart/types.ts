@@ -11,7 +11,8 @@ export interface CartContextState {
 
 export type CartAction =
   | {type: 'addProduct'; payload: IProduct}
-  | {type: 'removeProduct'; payload: {id: number}};
+  | {type: 'removeProduct'; payload: {id: number}}
+  | {type: 'clearCart'};
 
 export interface ICartContext {
   cartState: CartContextState;
