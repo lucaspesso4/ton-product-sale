@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Box, Button, Text, Image, Pressable} from 'native-base';
+import React, {useState, useMemo} from 'react';
+import {Box, Button, Text, Image, Pressable, useToast} from 'native-base';
 import {ProductDescriptionModal} from './DescriptionModal';
 import {useCartContext} from 'contexts/cart/hooks';
 import {IProduct} from 'types/Product';
@@ -9,18 +9,43 @@ interface ProductProps {
 }
 
 export function Product({product}: ProductProps) {
+  const toast = useToast();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const {cartProducts, addToCart, removeFromCart} = useCartContext();
 
   const isAnAddedProduct = cartProducts.find(p => p.id === product.id);
 
+  const componentHelper = useMemo(() => {
+    if (!isAnAddedProduct)
+      return {
+        colorScheme: 'success',
+        button: {
+          label: 'Adicionar',
+          action: addToCart,
+        },
+        toast: {description: 'Produto adicionado ao carrinho'},
+      };
+
+    return {
+      colorScheme: 'error',
+      button: {
+        label: 'Remover',
+        action: removeFromCart,
+      },
+      toast: {description: 'Produto removido do carrinho'},
+    };
+  }, [isAnAddedProduct]);
+
   const handleOpenDescription = () => setIsOpen(true);
 
   const handleCloseDescription = () => setIsOpen(false);
 
-  const handleAddToCart = () => addToCart(product);
-
-  const handleRemoveFromCart = () => removeFromCart(product);
+  function handleClickButton() {
+    toast.show({
+      description: componentHelper.toast.description,
+    });
+    componentHelper.button.action(product);
+  }
 
   return (
     <Box maxWidth="40%" m="4">
@@ -31,24 +56,14 @@ export function Product({product}: ProductProps) {
           size="xl"
         />
         <Text isTruncated>{product.name}</Text>
-        {isAnAddedProduct && (
-          <Button
-            mt="2"
-            size="sm"
-            colorScheme="error"
-            onPress={handleRemoveFromCart}>
-            Remover
-          </Button>
-        )}
-        {!isAnAddedProduct && (
-          <Button
-            mt="2"
-            size="sm"
-            colorScheme="success"
-            onPress={handleAddToCart}>
-            Adicionar
-          </Button>
-        )}
+
+        <Button
+          mt="2"
+          size="sm"
+          colorScheme={componentHelper.colorScheme}
+          onPress={handleClickButton}>
+          {componentHelper.button.label}
+        </Button>
 
         <ProductDescriptionModal
           isOpen={isOpen}
