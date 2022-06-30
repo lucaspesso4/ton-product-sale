@@ -4,8 +4,11 @@ import {Badge, Box, Button, VStack, Row} from 'native-base';
 import CartIcon from '@assets/icons/shopping-cart.svg';
 import BackIcon from '@assets/icons/back-arrow.svg';
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
+import {useCartContext} from 'contexts/cart/hooks';
 
 export function Appbar({navigation, back}: NativeStackHeaderProps) {
+  const {cartProductsCount} = useCartContext();
+
   function openCart() {
     navigation.navigate('cart');
   }
@@ -40,7 +43,7 @@ export function Appbar({navigation, back}: NativeStackHeaderProps) {
             zIndex={1}
             variant="solid"
             alignSelf="flex-end">
-            0
+            {cartProductsCount}
           </Badge>
           <Button variant="ghost" p="2" onPress={openCart}>
             <CartIcon width={20} height={20} fill="#fff" />

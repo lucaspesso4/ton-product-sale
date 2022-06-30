@@ -9,23 +9,25 @@ import {ProductsPage} from '@pages/Products';
 
 const Stack = createNativeStackNavigator();
 
-export const Routes = (
-  <NavigationContainer>
-    <Stack.Navigator initialRouteName="home">
-      <Stack.Screen
-        name="home"
-        component={ProductsPage}
-        options={{
-          header: props => <Appbar {...props} />,
-        }}
-      />
-      <Stack.Screen
-        name="cart"
-        component={CartPage}
-        options={{
-          header: props => <Appbar {...props} />,
-        }}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
+export function Routes() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="home">
+        <Stack.Screen
+          name="home"
+          component={ProductsPage}
+          options={{
+            header: props => <Appbar {...props} />,
+          }}
+        />
+        <Stack.Screen
+          name="cart"
+          component={CartPage}
+          options={{
+            header: props => <Appbar {...props} />,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
