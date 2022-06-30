@@ -1,16 +1,7 @@
 import React, {useReducer} from 'react';
-import {IProduct} from '@components/Product';
 import {CartContext} from './CartContext';
 import {cartReducer} from './CartReducer';
-
-interface ICartContextProvider {
-  children: JSX.Element | JSX.Element[];
-}
-
-export interface CartContextState {
-  products: IProduct[];
-  productsCount: number;
-}
+import {CartContextState, ICartContextProvider} from './types';
 
 const INITIAL_STATE: CartContextState = {
   products: [],

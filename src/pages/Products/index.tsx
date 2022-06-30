@@ -1,10 +1,11 @@
 import React, {useMemo} from 'react';
 import {SafeAreaView} from 'react-native';
 import {Spinner, ScrollView, Center, Text} from 'native-base';
-import {Product, IProduct} from '@components/Product';
+import {Product} from '@components/Product';
 import {useQuery} from 'react-query';
 import {ProductsService} from 'services/core';
 import {containerStyle} from './style';
+import {IProduct} from 'types/Product';
 
 export function ProductsPage() {
   const {isLoading, isError, data} = useQuery(

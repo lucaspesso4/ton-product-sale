@@ -1,9 +1,4 @@
-import {IProduct} from '@components/Product';
-import {CartContextState} from './CartProvider';
-
-export type CartAction =
-  | {type: 'addProduct'; payload: IProduct}
-  | {type: 'removeProduct'; payload: {id: number}};
+import {CartAction, CartContextState} from './types';
 
 export function cartReducer(
   state: CartContextState,

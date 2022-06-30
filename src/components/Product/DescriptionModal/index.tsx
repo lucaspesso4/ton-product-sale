@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal, Button, Image, Text, Center, ScrollView} from 'native-base';
-import {IProduct} from '@components/Product';
+import {IProduct} from 'types/Product';
 
 interface ProductDescriptionModalProps {
   isOpen: boolean;

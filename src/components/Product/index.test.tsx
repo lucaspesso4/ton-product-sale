@@ -1,8 +1,9 @@
 import 'react-native';
 import React from 'react';
-import {IProduct, Product} from '.';
+import {Product} from '.';
 
 import {renderWrapper, screen} from 'test-utils';
+import {IProduct} from 'types/Product';
 
 const productMock: IProduct = {
   id: 0,

@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import {Box, Button, Text, Image, Pressable} from 'native-base';
 import {ProductDescriptionModal} from './DescriptionModal';
 import {useCartContext} from 'contexts/cart/hooks';
-
-export interface IProduct {
-  id: number;
-  name: string;
-  description: string;
-  uriImage: string;
-}
+import {IProduct} from 'types/Product';
 
 interface ProductProps {
   product: IProduct;

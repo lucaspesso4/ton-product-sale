@@ -1,5 +1,5 @@
-import {IProduct} from '@components/Product';
 import {useContext} from 'react';
+import {IProduct} from 'types/Product';
 import {CartContext} from './CartContext';
 
 export function useCartContext() {
