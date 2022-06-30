@@ -3,14 +3,16 @@ import {Badge, Box, Button, VStack, Row} from 'native-base';
 
 import CartIcon from '@assets/icons/shopping-cart.svg';
 import BackIcon from '@assets/icons/back-arrow.svg';
-import {NativeStackHeaderProps} from '@react-navigation/native-stack';
 import {useCartContext} from 'contexts/cart/hooks';
+import {useNavigation} from '@react-navigation/native';
 
-export function Appbar({navigation, back}: NativeStackHeaderProps) {
+export function Appbar() {
+  const navigation = useNavigation();
+  const canGoBack = navigation.canGoBack();
   const {cartProductsCount} = useCartContext();
 
   function openCart() {
-    navigation.navigate('cart');
+    navigation.navigate('cart' as never);
   }
 
   function goBack() {
@@ -28,8 +30,8 @@ export function Appbar({navigation, back}: NativeStackHeaderProps) {
         flexDirection="row"
         alignItems="center"
         flex="1"
-        justifyContent={back ? 'space-between' : 'flex-end'}>
-        {back && (
+        justifyContent={canGoBack ? 'space-between' : 'flex-end'}>
+        {canGoBack && (
           <BackIcon onPress={goBack} width={20} height={20} fill="#fff" />
         )}
         <VStack alignSelf="flex-end">

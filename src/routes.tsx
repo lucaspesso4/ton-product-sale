@@ -17,14 +17,14 @@ export function Routes() {
           name="home"
           component={ProductsPage}
           options={{
-            header: props => <Appbar {...props} />,
+            header: Appbar,
           }}
         />
         <Stack.Screen
           name="cart"
           component={CartPage}
           options={{
-            header: props => <Appbar {...props} />,
+            header: Appbar,
           }}
         />
       </Stack.Navigator>
